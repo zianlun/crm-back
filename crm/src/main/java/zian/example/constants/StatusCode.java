@@ -11,7 +11,13 @@ public enum StatusCode {
 
     FAILE("失败",0),
 
-    SUCCESS("成功",1);
+    SUCCESS("成功",1),
+
+    HTTPSUCCESS("成功",200),
+
+    HTTPFORBIDDEN("无权限",403),
+
+    HTTPUNAUTHORIZED("未经授权", 401);
 
     private final String name;
 

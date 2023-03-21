@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:mvn="http://www.springframework.org/schema/mvc" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mav="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -54,5 +55,18 @@
     <!--配置异常处理器-->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"></bean>
 
-
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"></mvc:mapping>
+            <mvc:exclude-mapping path="/user/login"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/index/**"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/jwt/accessStatus"></mvc:exclude-mapping>
+            <ref bean="jwtInterceptor"></ref>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--
+    以上配置方式可以通过ref或bean标签设置拦截器，通过mvc:mapping设置需要拦截的请求，通过
+    mvc:exclude-mapping设置需要排除的请求，即不需要拦截的请求
+    -->
 </beans>

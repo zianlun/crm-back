@@ -1,6 +1,7 @@
 package zian.example.service;
 
 import zian.example.pojo.User;
+import zian.example.pojo.UserInfo;
 
 import java.util.Map;
 
@@ -28,4 +29,20 @@ public interface UserService {
          * @Date
          */
       User verifyLogin(Map<String,Object> loginForm);
+
+      /* **
+         * @MethodName verifyLogin
+         * @Description  登录验证重载方法
+         * @Author ljzhang
+         * @Date
+         */
+      User verifyLogin(String email, String password);
+
+      /* **
+         * @MethodName queryUserInfo
+         * @Description  查询用户的信息
+         * @Author ljzhang
+         * @Date
+         */
+      Map<String, Object> queryUserInfo(String email, String password);
 }
