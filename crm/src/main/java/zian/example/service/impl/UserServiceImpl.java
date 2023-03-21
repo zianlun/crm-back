@@ -3,11 +3,15 @@ package zian.example.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import zian.example.mapper.UserInfoMapper;
 import zian.example.mapper.UserMapper;
 import zian.example.pojo.User;
 import zian.example.pojo.UserExample;
+import zian.example.pojo.UserInfo;
+import zian.example.pojo.UserInfoExample;
 import zian.example.service.UserService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
 
     @Override
     public boolean verifyEmail(String email) {
@@ -44,4 +51,23 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.selectByEmailAndPassword(loginForm);
         return user;
     }
+
+    @Override
+    public User verifyLogin(String email, String password) {
+        Map<String, Object> loginForm = new HashMap<String, Object>();
+        loginForm.put("email", email);
+        loginForm.put("password", password);
+        return verifyLogin(loginForm);
+    }
+    @Override
+    public Map<String, Object> queryUserInfo(String email, String password) {
+        Map<String,Object> loginForm = new HashMap<String, Object>();
+        loginForm.put("email",email);
+        loginForm.put("password",password);
+        User user = userMapper.selectByEmailAndPassword(loginForm);
+        Map<String, Object> userInfo = userInfoMapper.selectById(user.getId());
+        return userInfo;
+    }
+
+
 }
