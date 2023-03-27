@@ -8,15 +8,11 @@ import zian.example.commons.ResponseJSON;
 import zian.example.constants.StatusCode;
 import zian.example.pojo.User;
 import zian.example.service.UserService;
-import zian.example.utils.DateUtils;
+import zian.example.utils.DateUtil;
 import zian.example.utils.TokenUtil;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.net.http.HttpRequest;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +51,7 @@ public class UserController {
                 //密码错误
                 responseJSON.setMessage("账户密码错误");
             }else{
-                if(DateUtils.formateDateTime(new Date()).compareTo(user.getExpireTime()) > 0){
+                if(DateUtil.formateDateTime(new Date()).compareTo(user.getExpireTime()) > 0){
                     //账号过期
                     responseJSON.setMessage("邮箱账户过期，请申诉");
                 }else if("0".equals(user.getLockState())){
@@ -145,4 +141,6 @@ public class UserController {
         }
         return responseJSON;
     }
+
+
 }

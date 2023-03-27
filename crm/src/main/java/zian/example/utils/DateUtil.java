@@ -10,7 +10,7 @@ import java.util.Date;
  * @Date 2023/3/20 9:47
  * @Version 1.0
  */
-public class DateUtils {
+public class DateUtil {
 
     /* **
        * @MethodName formateDateTime

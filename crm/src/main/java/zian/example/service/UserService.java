@@ -3,6 +3,7 @@ package zian.example.service;
 import zian.example.pojo.User;
 import zian.example.pojo.UserInfo;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -45,4 +46,13 @@ public interface UserService {
          * @Date
          */
       Map<String, Object> queryUserInfo(String email, String password);
+
+
+      /* **
+         * @MethodName queryAllUsers
+         * @Description  查询所用用户
+         * @Author ljzhang
+         * @Date
+         */
+      ArrayList<Object> queryAllUsers();
 }

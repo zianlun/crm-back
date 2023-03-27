@@ -17,7 +17,9 @@ public enum StatusCode {
 
     HTTPFORBIDDEN("无权限",403),
 
-    HTTPUNAUTHORIZED("未经授权", 401);
+    HTTPUNAUTHORIZED("未经授权", 401),
+
+    HTTPERROR("错误",500);
 
     private final String name;
 

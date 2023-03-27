@@ -127,7 +127,7 @@
   </select>
 
   <select id="selectById" resultType="map">
-    select username, account, tbl_user.email,  phone, avatar,
+    select user_id userId, username, account, tbl_user.email,  phone, avatar,
             depart, address, education, gender, age
     from tbl_user,user_info
     where tbl_user.id = user_info.user_id and tbl_user.id = #{userId}

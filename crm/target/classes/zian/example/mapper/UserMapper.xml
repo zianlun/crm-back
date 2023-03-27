@@ -271,6 +271,12 @@
     from tbl_user
     where email = #{email} and password = #{password}
   </select>
+
+  <select id="selectAllUsers" resultType="map">
+    select username,id userId
+    from tbl_user
+    where lock_state = '1'
+  </select>
   <update id="updateByExampleSelective" parameterType="map" >
     <!--
       WARNING - @mbggenerated

@@ -54,4 +54,7 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="zian.example.mapper"></property>
     </bean>
+
+    <!--分页插件-->
+
 </beans>

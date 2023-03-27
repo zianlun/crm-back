@@ -11,6 +11,7 @@ import zian.example.pojo.UserInfo;
 import zian.example.pojo.UserInfoExample;
 import zian.example.service.UserService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,5 +70,8 @@ public class UserServiceImpl implements UserService {
         return userInfo;
     }
 
-
+    @Override
+    public ArrayList<Object> queryAllUsers() {
+        return  userMapper.selectAllUsers();
+    }
 }

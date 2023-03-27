@@ -1,5 +1,6 @@
 package zian.example.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -104,4 +105,13 @@ public interface UserMapper {
        * @Date
        */
     User selectByEmailAndPassword(Map<String,Object> map);
+
+    /* **
+       * @MethodName selectAllUsers
+       * @Description  搜索所有的用户的用户名
+       * @Author ljzhang
+       * @Date
+       */
+    ArrayList<Object>  selectAllUsers();
+
 }
